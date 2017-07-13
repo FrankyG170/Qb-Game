@@ -103,6 +103,20 @@ void Game::DrawPlayer()
 			filledRectIndx[i] = filledRectIndx3[i];
 		}
 	}
+	else if (wnd.kbd.KeyIsPressed(VK_DOWN)) // Right moving state
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			filledRectIndx[i] = filledRectIndx4[i];
+		}
+	}
+	else if (wnd.kbd.KeyIsPressed(VK_UP)) // Right moving state
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			filledRectIndx[i] = filledRectIndx5[i];
+		}
+	}
 	else // Neutral state
 	{
 		for (int i = 0; i < 10; i++)
