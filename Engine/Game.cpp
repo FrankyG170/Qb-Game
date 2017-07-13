@@ -96,21 +96,21 @@ void Game::DrawPlayer()
 			filledRectIndx[i] = filledRectIndx2[i];
 		}
 	}
-	else if (wnd.kbd.KeyIsPressed(VK_LEFT)) // Right moving state
+	else if (wnd.kbd.KeyIsPressed(VK_LEFT)) // Left moving state
 	{
 		for (int i = 0; i < 10; i++)
 		{
 			filledRectIndx[i] = filledRectIndx3[i];
 		}
 	}
-	else if (wnd.kbd.KeyIsPressed(VK_DOWN)) // Right moving state
+	else if (wnd.kbd.KeyIsPressed(VK_DOWN)) // Down moving state
 	{
 		for (int i = 0; i < 10; i++)
 		{
 			filledRectIndx[i] = filledRectIndx4[i];
 		}
 	}
-	else if (wnd.kbd.KeyIsPressed(VK_UP)) // Right moving state
+	else if (wnd.kbd.KeyIsPressed(VK_UP)) // Up moving state
 	{
 		for (int i = 0; i < 10; i++)
 		{
