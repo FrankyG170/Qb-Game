@@ -73,5 +73,7 @@ private:
 	static constexpr int filledRectIndx1[10] = { 6,11,19 - 6,20 - 6,21 - 6,22 - 6,26 - 6,27 - 6 };
 	// Moving right face expression
 	static constexpr int filledRectIndx2[10] = { 8, 11, 20, 21, 22, 23, 27, 28 };
+	// Moving left face expression
+	static constexpr int filledRectIndx3[10] = { 6, 9, 18, 19, 20, 21, 25, 26 };
 	/********************************/
 };

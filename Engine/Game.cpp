@@ -81,25 +81,29 @@ void Game::DrawPlayer()
 
 	const Vec2 topLeft = playerPos + Vec2(0.5f, 0.5f);
 
-	// int filledRectIndx[50] = { 46, 52, 56, 58, 62, 64, 66, 70, 72, 76, 144, 152, 156, 157, 161, 162, 167, 168, 169, 170, 171, 172, 173, 179, 180, 181, 182, 183, 190, 191, 192, 193, 194, 202, 203, 204, 214 }; // Location of squears to be filled
 
-
-
-	if (wnd.kbd.KeyIsPressed(VK_SHIFT)) // Does not work, pressing shift breaks face, ow
+	if (wnd.kbd.KeyIsPressed(VK_SHIFT)) // Funny face
 	{
 		for (int i = 0; i < 10; i++)
 		{
 			filledRectIndx[i] = filledRectIndx1[i];
 		}
 	}
-	else if (wnd.kbd.KeyIsPressed(VK_RIGHT))
+	else if (wnd.kbd.KeyIsPressed(VK_RIGHT)) // Right moving state
 	{
 		for (int i = 0; i < 10; i++)
 		{
 			filledRectIndx[i] = filledRectIndx2[i];
 		}
 	}
-	else
+	else if (wnd.kbd.KeyIsPressed(VK_LEFT)) // Right moving state
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			filledRectIndx[i] = filledRectIndx3[i];
+		}
+	}
+	else // Neutral state
 	{
 		for (int i = 0; i < 10; i++)
 		{
