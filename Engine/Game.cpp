@@ -1,5 +1,5 @@
-/****************************************************************************************** 
- *	Chili DirectX Framework Version 16.07.20											  *	
+/******************************************************************************************
+ *	Chili DirectX Framework Version 16.07.20											  *
  *	Game.cpp																			  *
  *	Copyright 2016 PlanetChili.net <http://www.planetchili.net>							  *
  *																						  *
@@ -21,16 +21,16 @@
 #include "MainWindow.h"
 #include "Game.h"
 
-Game::Game( MainWindow& wnd )
+Game::Game(MainWindow& wnd)
 	:
-	wnd( wnd ),
-	gfx( wnd )
+	wnd(wnd),
+	gfx(wnd)
 {
 }
 
 void Game::Go()
 {
-	gfx.BeginFrame();	
+	gfx.BeginFrame();
 	UpdateModel();
 	ComposeFrame();
 	gfx.EndFrame();
@@ -38,30 +38,73 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	DrawPlayer();
+	MovePlayer();
+}
+
+void Game::ComposeFrame()
+{
+
+}
+
+void Game::CopyArray(int* A, int* B)
+{
+	for (int i = 0; i < (sizeof(A) / sizeof(*A)); i++)
+	{
+		B[i] = A[i];
+	}
+}
+
+void Game::MovePlayer()
+{
+	if (wnd.kbd.KeyIsPressed(VK_RIGHT))
+	{
+		playerPos.x += 5.0f;
+	}
+	if (wnd.kbd.KeyIsPressed(VK_LEFT))
+	{
+		playerPos.x -= 5.0f;
+	}
+	if (wnd.kbd.KeyIsPressed(VK_UP))
+	{
+		playerPos.y -= 5.0f;
+	}
+	if (wnd.kbd.KeyIsPressed(VK_DOWN))
+	{
+		playerPos.y += 5.0f;
+	}
+}
+
+void Game::DrawPlayer()
+{
 	gfx.DrawRect(RectF(playerPos, playerWidth, playerHeight), playerC);
-	
+
 	const Vec2 topLeft = playerPos + Vec2(0.5f, 0.5f);
 
 	// int filledRectIndx[50] = { 46, 52, 56, 58, 62, 64, 66, 70, 72, 76, 144, 152, 156, 157, 161, 162, 167, 168, 169, 170, 171, 172, 173, 179, 180, 181, 182, 183, 190, 191, 192, 193, 194, 202, 203, 204, 214 }; // Location of squears to be filled
 
-	int filledRectIndx[10] = { };
 
-	if (wnd.kbd.KeyIsEmpty())
+
+	if (wnd.kbd.KeyIsPressed(VK_SHIFT)) // Does not work, pressing shift breaks face, ow
 	{
-		int newFilledRectIndx [10] = { 7, 10, 19, 20, 21, 22, 26, 27 };
 		for (int i = 0; i < 10; i++)
 		{
-			filledRectIndx[i] = newFilledRectIndx[i];
+			filledRectIndx[i] = filledRectIndx1[i];
 		}
 	}
-
-	if (wnd.kbd.KeyIsPressed(VK_LSHIFT)) // Does not work, pressing shift breaks face, ow
+	else if (wnd.kbd.KeyIsPressed(VK_RIGHT))
 	{
-		 int newFilledRectIndx[10] = { 7, 10, 19, 21, 23, 24, 26, 28 };
-		 for (int i = 0; i < 10; i++)
-		 {
-			 filledRectIndx[i] = newFilledRectIndx[i];
-		 }
+		for (int i = 0; i < 10; i++)
+		{
+			filledRectIndx[i] = filledRectIndx2[i];
+		}
+	}
+	else
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			filledRectIndx[i] = filledRectIndx0[i];
+		}
 	}
 
 	int i = 0; // Tracks for entire loop to see how many rects are left to be place
@@ -82,27 +125,13 @@ void Game::UpdateModel()
 			{
 				gfx.DrawRect(shadedRect.GetExpanded(-padding), playerShadingC);
 			}
-			else if (i == filledRectIndx[z] && wnd.kbd.KeyIsEmpty()) // Draw filled rect
+			else if (i == filledRectIndx[z]) // Draw filled rect
 			{
 				gfx.DrawRect(filledRect.GetExpanded(-padding), filledRectC);
 				z++;
 			}
 			i++;
 		}
-			
-	}
-	
-	
-}
 
-void Game::ComposeFrame()
-{
-}
-
-void Game::CopyArray(int* A, int* B)
-{
-	for (int i = 0; i < (sizeof(A) / sizeof(*A)); i++)
-	{
-		B[i] = A[i];
 	}
 }

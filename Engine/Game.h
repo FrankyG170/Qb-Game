@@ -1,5 +1,5 @@
-/****************************************************************************************** 
- *	Chili DirectX Framework Version 16.07.20											  *	
+/******************************************************************************************
+ *	Chili DirectX Framework Version 16.07.20											  *
  *	Game.h																				  *
  *	Copyright 2016 PlanetChili.net <http://www.planetchili.net>							  *
  *																						  *
@@ -34,8 +34,10 @@ public:
 	void Go();
 private:
 	void ComposeFrame();
-	void UpdateModel(); 
-	void Game::CopyArray(int A[], int B[]);
+	void UpdateModel();
+	void CopyArray(int* A, int* B);
+	void DrawPlayer();
+	void MovePlayer();
 	/********************************/
 	/*  User Functions              */
 	/********************************/
@@ -55,7 +57,7 @@ private:
 	float nShadedRectsAcross = playerWidth / 5.0f;
 	float nShadedRectsDown = playerHeight / 5.0f;
 	float shadedRectWidth = playerWidth / nShadedRectsAcross;
-	float shadedRectHeight =  playerHeight / nShadedRectsDown;
+	float shadedRectHeight = playerHeight / nShadedRectsDown;
 	int nShadedRects = nShadedRectsAcross * nShadedRectsDown;
 	RectF shadedRect;
 	Color playerShadingC = Colors::MakeRGB(101, 25, 151);
@@ -65,5 +67,11 @@ private:
 	float filledRectHeight = playerHeight / nShadedRectsDown;
 	Color filledRectC = Colors::MakeRGB(0, 0, 0);
 	RectF filledRect;
+	int filledRectIndx[10] = {};
+	static constexpr int filledRectIndx0[10] = { 7,10,19,20,21,22,26,27 };
+	// 6 makes you go up 1 line.
+	static constexpr int filledRectIndx1[10] = { 6,11,19 - 6,20 - 6,21 - 6,22 - 6,26 - 6,27 - 6 };
+	// Moving right face expression
+	static constexpr int filledRectIndx2[10] = { 8, 11, 20, 21, 22, 23, 27, 28 };
 	/********************************/
 };
