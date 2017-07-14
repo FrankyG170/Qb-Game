@@ -149,7 +149,6 @@
     <ClInclude Include="PlayerMovingRight.h" />
     <ClInclude Include="RectF.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="StateManager.h" />
     <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <ItemGroup>

@@ -3,23 +3,22 @@
 #include "RectF.h"
 #include "Colors.h"
 #include "Keyboard.h"
-#include "StateManager.h"
 #include "Graphics.h"
 
+enum class Movement
+{
+	Left, Right, Up, Down, None
+};
 class Player
 {
+	class MovePlayerManager;
+protected:
+	MovePlayerManager* m_MovePlayerManager = nullptr;
 public:
-	Player(StateManager::state* state_in)
-		:
-		state(state_in)
-	{};
-	virtual void MovePlayer() = 0;
-	virtual void DrawPlayer() = 0;
+	explicit Player(MovePlayerManager* mPM_in) : m_MovePlayerManager(mPM_in) {}
+	virtual ~Player() = default;
 
 protected:
-	// Pointer to state machine variables
-	StateManager::state* state;
-
 	// Used to make pinkish background for player
 	Vec2 playerPos = Vec2(20, 20);
 	Color playerC = Colors::MakeRGB(179, 47, 252);

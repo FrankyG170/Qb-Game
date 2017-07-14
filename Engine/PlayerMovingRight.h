@@ -1,13 +1,12 @@
 #pragma once
 #include "Player.h"
 
-class PlayerMovingRight : public Player
+class MovePlayerManager : public Player
 {
+	Movement m_Movement = Movement::None;
 public:
-	PlayerMovingRight() = default;
-	virtual void MovePlayer(Vec2& position);
-	virtual void DrawPlayer(Vec2& position, float height, float width, Color& color, int* drawIndex);
-
-public:
+	MovePlayerManager() = default;
+	~MovePlayerManager() override = default;
+	void MovePlayer() { if (m_MovePlayerManager != nullptr) { m_Movement = Movement::Right; } }
 };
 
