@@ -19,6 +19,8 @@ public:
 	virtual ~Player() = default;
 
 protected:
+	
+
 	// Used to make pinkish background for player
 	Vec2 playerPos = Vec2(20, 20);
 	Color playerC = Colors::MakeRGB(179, 47, 252);
