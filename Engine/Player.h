@@ -29,6 +29,7 @@ public:
 
 protected:
 	// Used to make pinkish background for player
+	Keyboard kbd;
 	Color playerC = Colors::MakeRGB(179, 47, 252);
 	float playerWidth = 30.0f;
 	float playerHeight = 30.0f;

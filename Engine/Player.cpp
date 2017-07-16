@@ -13,24 +13,21 @@ Player::Player(Vec2 & pos_in, float width_in, float height_in, Color & color_in)
 
 void Player::Move(Keyboard::Event& keyEvent)
 {
-	if (keyEvent.IsPress()) 
-	{
 		switch (keyEvent.GetCode())
 		{
 		case VK_RIGHT:
-			Player::playerPos.x += 5.0f;
+			playerPos.x += 5.0f;
 			break;
 		case VK_LEFT:
-			Player::playerPos.x -= 5.0f;
+			playerPos.x -= 5.0f;
 			break;
 		case VK_UP:
-			Player::playerPos.y -= 5.0f;
+			playerPos.y -= 5.0f;
 			break;
 		case VK_DOWN:
-			Player::playerPos.y += 5.0f;
+			playerPos.y += 5.0f;
 			break;
 		}
-	}
 }
 
 void Player::Draw()
