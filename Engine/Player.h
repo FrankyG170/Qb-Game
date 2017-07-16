@@ -5,24 +5,26 @@
 #include "Keyboard.h"
 #include "Graphics.h"
 
-enum class Movement
-{
-	Left, Right, Up, Down, None
-};
+
 class Player
 {
-	class MovePlayerManager;
-protected:
-	MovePlayerManager* m_MovePlayerManager = nullptr;
 public:
-	explicit Player(MovePlayerManager* mPM_in) : m_MovePlayerManager(mPM_in) {}
+	void Move(Keyboard::Event& keyEvent);
+	void Draw();
+	void Update(Keyboard::Event& keyEvent)
+	{
+		Move(keyEvent);
+		// void Draw();
+	};
+
+public:
+
 	virtual ~Player() = default;
+	Player(Vec2& pos_in, float width_in, float height_in, Color& color_in);
 
 protected:
-	
-
 	// Used to make pinkish background for player
-	Vec2 playerPos = Vec2(20, 20);
+	Vec2 playerPos;
 	Color playerC = Colors::MakeRGB(179, 47, 252);
 	float playerWidth = 30.0f;
 	float playerHeight = 30.0f;
@@ -33,7 +35,7 @@ protected:
 	float nShadedRectsDown = playerHeight / 5.0f;
 	float shadedRectWidth = playerWidth / nShadedRectsAcross;
 	float shadedRectHeight = playerHeight / nShadedRectsDown;
-	int nShadedRects = nShadedRectsAcross * nShadedRectsDown;
+	float nShadedRects = nShadedRectsAcross * nShadedRectsDown;
 	RectF shadedRect;
 	Color playerShadingC = Colors::MakeRGB(101, 25, 151);
 

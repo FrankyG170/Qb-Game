@@ -24,7 +24,7 @@
 #include "Mouse.h"
 #include "Graphics.h"
 #include "RectF.h"
-#include "MovePlayerManager.h"
+#include "Player.h"
 
 class Game
 {
@@ -46,9 +46,9 @@ private:
 	/********************************/
 	/*  User Variables              */
 	// Player object
-	MovePlayerManager* mPM;
-	// Key Press 
-	Keyboard::Event* e;
+	Player player;
+	// Keyboard event
+	Keyboard::Event e;
 	/********************************/
 
 	// Will remove these entirely once I can get draw to work through pointers
@@ -64,7 +64,7 @@ private:
 	float nShadedRectsDown = playerHeight / 5.0f;
 	float shadedRectWidth = playerWidth / nShadedRectsAcross;
 	float shadedRectHeight = playerHeight / nShadedRectsDown;
-	int nShadedRects = nShadedRectsAcross * nShadedRectsDown;
+	float nShadedRects = nShadedRectsAcross * nShadedRectsDown;
 	RectF shadedRect;
 	Color playerShadingC = Colors::MakeRGB(101, 25, 151);
 

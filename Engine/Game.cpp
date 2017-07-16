@@ -24,7 +24,8 @@
 Game::Game(MainWindow& wnd)
 	:
 	wnd(wnd),
-	gfx(wnd)
+	gfx(wnd),
+	player(playerPos, playerWidth, playerHeight, playerC)
 {
 }
 
@@ -39,9 +40,9 @@ void Game::Go()
 void Game::UpdateModel()
 {
 	DrawPlayer();
-
-	Keyboard::Event e = wnd.kbd.ReadKey();
+	e = wnd.kbd.ReadKey();
 	e.GetCode();
+	player.Update(e);
 }
 
 void Game::ComposeFrame()
