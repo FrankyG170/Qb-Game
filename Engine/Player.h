@@ -18,7 +18,6 @@ public:
 	};
 	Vec2 GetPos();
 
-
 public:
 
 	virtual ~Player() = default;
