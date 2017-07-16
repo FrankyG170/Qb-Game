@@ -25,7 +25,7 @@ Game::Game(MainWindow& wnd)
 	:
 	wnd(wnd),
 	gfx(wnd),
-	player(playerPos, playerWidth, playerHeight, playerC)
+	player(player.GetPos(), playerWidth, playerHeight, playerC)
 {
 }
 
@@ -52,9 +52,9 @@ void Game::ComposeFrame()
 
 void Game::DrawPlayer()
 {
-	gfx.DrawRect(RectF(playerPos, playerWidth, playerHeight), playerC);
+	gfx.DrawRect(RectF(player.GetPos(), playerWidth, playerHeight), playerC);
 
-	const Vec2 topLeft = playerPos + Vec2(0.5f, 0.5f);
+	const Vec2 topLeft = player.GetPos() + Vec2(0.5f, 0.5f);
 
 
 	if (wnd.kbd.KeyIsPressed(VK_SHIFT)) // Funny face

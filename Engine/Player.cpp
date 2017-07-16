@@ -16,21 +16,26 @@ void Player::Move(Keyboard::Event& keyEvent)
 	switch (keyEvent.GetCode())
 	{
 	case VK_RIGHT:
-		playerPos.x += 5.0f;
+		Player::playerPos.x += 5.0f;
 		break;
 	case VK_LEFT:
-		playerPos.x -= 5.0f;
+		Player::playerPos.x -= 5.0f;
 		break;
 	case VK_UP:
-		playerPos.y -= 5.0f;
+		Player::playerPos.x -= 5.0f;
 		break;
 	case VK_DOWN:
-		playerPos.y += 5.0f;
+		Player::playerPos.x += 5.0f;
 		break;
 	}
 }
 
 void Player::Draw()
 {
+}
+
+Vec2 Player::GetPos()
+{
+	return playerPos;
 }
 

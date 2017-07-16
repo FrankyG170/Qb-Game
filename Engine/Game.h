@@ -53,7 +53,6 @@ private:
 
 	// Will remove these entirely once I can get draw to work through pointers
 	// Used to make pinkish background for player
-	Vec2 playerPos = Vec2(20, 20);
 	Color playerC = Colors::MakeRGB(179, 47, 252);
 	float playerWidth = 30.0f;
 	float playerHeight = 30.0f;

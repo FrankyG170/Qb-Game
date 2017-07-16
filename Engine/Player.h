@@ -16,15 +16,20 @@ public:
 		Move(keyEvent);
 		// void Draw();
 	};
+	Vec2 GetPos();
+
 
 public:
 
 	virtual ~Player() = default;
 	Player(Vec2& pos_in, float width_in, float height_in, Color& color_in);
 
+public:
+	Vec2 playerPos = Vec2(20.0f, 20.0f);
+
 protected:
 	// Used to make pinkish background for player
-	Vec2 playerPos;
+	
 	Color playerC = Colors::MakeRGB(179, 47, 252);
 	float playerWidth = 30.0f;
 	float playerHeight = 30.0f;
