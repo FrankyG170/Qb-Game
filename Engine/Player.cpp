@@ -13,7 +13,7 @@ Player::Player(Vec2 & pos_in, float width_in, float height_in, Color & color_in)
 
 void Player::Move(Keyboard::Event& keyEvent)
 {
-	switch (keyEvent)
+	switch (keyEvent.GetCode())
 	{
 	case VK_RIGHT:
 		playerPos.x += 5.0f;
