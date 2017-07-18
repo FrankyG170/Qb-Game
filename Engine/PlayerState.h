@@ -1,12 +1,14 @@
 #pragma once
+#include "Keyboard.h"
+#include "Graphics.h"
+
 class Player;
 
 class PlayerState
-
 {
 public:
 	virtual ~PlayerState() {}
-	virtual void HandleInput(Player& player, Keyboard::Event input) {}
+	virtual PlayerState* HandleInput(Player& player, Keyboard::Event input) {}
 	virtual void Update(Player& player) {}
 
 public:

@@ -19,11 +19,6 @@ enum State
 class Player
 {
 public:
-	/*void Update(Keyboard::Event& keyEvent, Keyboard& kbd);
-	void Move(Keyboard::Event& keyEvent); /// Not Used
-	void Draw(Graphics& gfx);
-	void FaceSwap(int newFace);*/
-
 	// State Machine methods
 	virtual void HandleInput(Keyboard::Event input);
 	virtual void Update();
