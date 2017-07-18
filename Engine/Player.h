@@ -4,19 +4,35 @@
 #include "Colors.h"
 #include "Keyboard.h"
 #include "Graphics.h"
+#include "PlayerState.h"
+
+enum State
+{
+	MOVING_RIGHT,
+	MOVING_LEFT,
+	MOVING_UP,
+	MOVING_DOWN,
+	STANDING
+};
 
 
 class Player
 {
 public:
-	void Update(Keyboard::Event& keyEvent, Keyboard& kbd);
+	/*void Update(Keyboard::Event& keyEvent, Keyboard& kbd);
 	void Move(Keyboard::Event& keyEvent); /// Not Used
 	void Draw(Graphics& gfx);
-	void FaceSwap(int newFace);
+	void FaceSwap(int newFace);*/
+
+	// State Machine methods
+	virtual void HandleInput(Keyboard::Event input);
+	virtual void Update();
 public:
-	virtual ~Player() = default;
+	virtual ~Player() {}
 public:
 	Vec2 playerPos = Vec2(100.0f, 100.0f);
+	static constexpr float speed = 2.5f;
+	PlayerState* state_;
 
 protected:
 	// Used to make pinkish background for player
@@ -24,7 +40,6 @@ protected:
 	Color playerC = Colors::MakeRGB(179, 47, 252);
 	static constexpr float playerWidth = 30.0f;
 	static constexpr float playerHeight = 30.0f;
-	static constexpr float SPEED = 2.5f;
 
 	// Used to make slighty darker rectangles for grid look
 	static constexpr float padding = 0.5f;

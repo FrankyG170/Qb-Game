@@ -145,8 +145,10 @@
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="MovingRightState.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="MovePlayer.h" />
+    <ClInclude Include="PlayerState.h" />
     <ClInclude Include="RectF.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Vec2.h" />
@@ -160,6 +162,7 @@
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="MovePlayer.cpp" />
+    <ClCompile Include="MovingRightState.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RectF.cpp" />
     <ClCompile Include="Vec2.cpp" />

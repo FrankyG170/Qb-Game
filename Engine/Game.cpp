@@ -38,9 +38,6 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	e = wnd.kbd.ReadKey();
-	e.GetCode();
-	player.Update(e, wnd.kbd);
 }
 
 void Game::ComposeFrame()
