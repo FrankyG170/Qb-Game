@@ -4,14 +4,20 @@
 class MovingRightState : public PlayerState
 {
 public:
-	MovingRightState();
+	MovingRightState() {}
 	virtual PlayerState* HandleInput(Player& p_player, Keyboard::Event input)
 	{
 		if (input.GetCode() == kbd.KeyIsPressed(VK_RIGHT))
 		{
-			
+			if (input.IsPress())
+			{
+				
+			}
+			else if (input.IsRelease())
+			{
+
+			}
 		}
-		return NULL;
 	}
 	virtual void Update(Player& p_player);
 
