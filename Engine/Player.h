@@ -6,6 +6,7 @@
 #include "Graphics.h"
 #include "PlayerState.h"
 
+
 enum State
 {
 	MOVING_RIGHT,
