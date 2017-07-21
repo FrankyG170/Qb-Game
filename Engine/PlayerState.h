@@ -10,7 +10,7 @@ class PlayerState
 public:
 	virtual ~PlayerState() {}
 	virtual PlayerState* HandleInput(Player& player, Keyboard::Event input) {}
-	virtual void Update(Player& player) {}
+	virtual void Update(Player& player);
 
 public:
 
